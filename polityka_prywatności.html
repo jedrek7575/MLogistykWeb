@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polityka Prywatności - mLogistyk</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #240b36 0%, #000000 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px 20px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        h1 { color: #e0b0ff; border-bottom: 2px solid #240b36; padding-bottom: 10px; }
+        h2 { color: #c384f3; margin-top: 30px; }
+        .highlight { color: #e0b0ff; font-weight: bold; }
+        .footer { margin-top: 50px; font-size: 0.8em; color: #888; text-align: center; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Polityka Prywatności mLogistyk</h1>
+        <p>Ostatnia aktualizacja: 20 lutego 2026 r.</p>
+
+        <p>Aplikacja <strong>mLogistyk</strong> szanuje Twoją prywatność. Poniższy dokument wyjaśnia, jak przetwarzamy dane w ramach naszych usług logistycznych.</p>
+
+        <h2>1. Lokalizacja (Kluczowe uprawnienie)</h2>
+        <p>Nasza aplikacja wymaga dostępu do Twojej <span class="highlight">lokalizacji (w tym lokalizacji w tle)</span>. Jest to niezbędne do:</p>
+        <ul>
+            <li>Monitorowania tras jednostek transportowych w czasie rzeczywistym.</li>
+            <li>Umożliwienia dyspozytorom podglądu "Mapy Floty".</li>
+            <li>Prawidłowego działania funkcji <strong>LocationGuard</strong>.</li>
+        </ul>
+        <p>Dane lokalizacyjne są zbierane nawet wtedy, gdy aplikacja jest zamknięta lub nieużywana, o ile aktywna jest sesja pracy logistyka.</p>
+
+        <h2>2. Dane Użytkownika i Autoryzacja</h2>
+        <p>Korzystamy z platformy <strong>Supabase </strong> do bezpiecznego zarządzania kontami. Przechowujemy:</p>
+        <ul>
+            <li>Adres e-mail oraz unikalny identyfikator (UUID) z bazy</li>
+            <li>Dane o przypisanych dokumentach dostawy.</li>
+        </ul>
+
+        <h2>3. Powiadomienia</h2>
+        <p>Aplikacja wysyła powiadomienia systemowe, aby informować o statusie zleceń i zmianach w harmonogramach. Możesz nimi zarządzać w ustawieniach systemu <strong>Android </strong>.</p>
+
+        <h2>4. Usługi w Tle</h2>
+        <p>Wykorzystujemy <strong>Flutter Background Service </strong> do utrzymania łączności GPS podczas pracy. Usługę można zatrzymać w dowolnym momencie poprzez wylogowanie się z aplikacji przyciskiem "Wyloguj".</p>
+
+        <h2>5. Bezpieczeństwo i Udostępnianie</h2>
+        <p>Twoje dane nie są sprzedawane podmiotom trzecim. Dostęp do Twojej lokalizacji mają wyłącznie zalogowani użytkownicy Twojej organizacji posiadający odpowiednie uprawnienia w panelu logistycznym.</p>
+
+        <h2>6. Kontakt</h2>
+        <p>W sprawach danych osobowych prosimy o kontakt: <strong>biuro@omnis.org.pl</strong></p>
+
+        <div class="footer">
+            Zbudowano przy użyciu technologii Flutter 
+        </div>
+    </div>
+</body>
+</html>
