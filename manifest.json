@@ -1,6 +1,6 @@
 {
-    "name": "omnis_logistics",
-    "short_name": "omnis_logistics",
+    "name": "mLogistyk",
+    "short_name": "mLogistyk",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
