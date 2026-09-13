@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Przekierowanie...</title>
+    <style>
+        body { background-color: #000000; color: #ffffff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    </style>
+</head>
+<body>
+    <div>Trwa ładowanie, proszę czekać...</div>
+
+    <script type="text/javascript">
+        // Dane z Twojego main.dart
+        const supabaseUrl = 'https://ejkkpiuigladcwwodyvt.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVqa2twaXVpZ2xhZGN3d29keXZ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk1OTM0NjgsImV4cCI6MjA4NTE2OTQ2OH0.MmXnosIOfvFINvG6oCJPxObW_dmLPxbWqCF_vftH5J8';
+
+        const path = window.location.pathname; // np. "/go/zaloz_konto"
+        
+        // Funkcja do ostatecznego przekierowania do Fluttera
+        function redirectToApp() {
+            // Przekazujemy pełną ścieżkę jako parametr, aby Flutter wiedział gdzie iść
+            window.location.replace("/?redirect=" + encodeURIComponent(path));
+        }
+
+        // Sprawdzamy czy ścieżka zaczyna się od "/go/"
+        if (path.startsWith("/go/")) {
+            // Przygotowujemy nazwę linku bez początkowego ukośnika (np. "go/zaloz_konto")
+            const linkName = path.substring(1); 
+
+            // Wysyłamy zapytanie do naszej bezpiecznej funkcji RPC w Supabase
+            fetch(`${supabaseUrl}/rest/v1/rpc/rejestruj_klikniecie`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'apikey': supabaseKey,
+                    'Authorization': `Bearer ${supabaseKey}`
+                },
+                body: JSON.stringify({ sciezka: linkName })
+            })
+            .then(() => {
+                // Po udanym zapisie idziemy do apki
+                redirectToApp();
+            })
+            .catch((error) => {
+                // Jeśli Supabase ma awarię, nie blokujemy użytkownika - też go przekierowujemy
+                console.error("Błąd zliczania:", error);
+                redirectToApp();
+            });
+        } else {
+            // Jeśli to zwykły błąd 404 (nie od linku z /go/), od razu przekieruj
+            redirectToApp();
+        }
+    </script>
+</body>
+</html>
